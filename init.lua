@@ -213,6 +213,15 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
+
+local ex_to_current_file = function()
+  local cur_file = vim.fn.expand('%:t')
+  vim.cmd.Ex()
+  vim.fn.search('^'..cur_file..'$')
+end
+
+vim.keymap.set("n", "-", ex_to_current_file)
+
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
@@ -834,7 +843,7 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
-			ensure_installed = { 
+			ensure_installed = {
         "bash",
         "c",
         "diff",
