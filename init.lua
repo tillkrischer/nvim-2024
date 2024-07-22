@@ -213,11 +213,10 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-
 local ex_to_current_file = function()
-  local cur_file = vim.fn.expand('%:t')
-  vim.cmd.Ex()
-  vim.fn.search('^'..cur_file..'$')
+	local cur_file = vim.fn.expand("%:t")
+	vim.cmd.Ex()
+	vim.fn.search("^" .. cur_file .. "$")
 end
 
 vim.keymap.set("n", "-", ex_to_current_file)
@@ -798,6 +797,13 @@ require("lazy").setup({
 			vim.cmd.hi("Comment gui=none")
 		end,
 	},
+	{
+		"catppuccin/nvim",
+		priority = 1000,
+		init = function()
+			-- vim.cmd.colorscheme("catppuccin-latte")
+		end,
+	},
 
 	-- Highlight todo, notes, etc in comments
 	-- "folke/todo-comments.nvim",
@@ -844,17 +850,17 @@ require("lazy").setup({
 		build = ":TSUpdate",
 		opts = {
 			ensure_installed = {
-        "bash",
-        "c",
-        "diff",
-        "html",
-        "lua",
-        "luadoc",
-        "markdown",
-        "vim",
-        "typescript",
-        "javascript",
-      },
+				"bash",
+				"c",
+				"diff",
+				"html",
+				"lua",
+				"luadoc",
+				"markdown",
+				"vim",
+				"typescript",
+				"javascript",
+			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,
 			highlight = {
