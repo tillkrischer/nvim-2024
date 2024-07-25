@@ -621,6 +621,7 @@ require("lazy").setup({
 				"prettier",
 				"typescript-language-server",
 				"eslint-lsp",
+        "csharp-language-server"
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
