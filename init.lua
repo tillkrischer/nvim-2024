@@ -603,6 +603,22 @@ require("lazy").setup({
 						},
 					},
 				},
+				prettier = {
+					filetypes = {
+						"json",
+						"javascript",
+						"typescript",
+						"javascriptreact",
+						"typescriptreact",
+					},
+				},
+				jsonls = {
+					json = {
+						format = {
+							enable = true,
+						},
+					},
+				},
 			}
 
 			-- Ensure the servers and tools above are installed
@@ -903,6 +919,12 @@ require("lazy").setup({
 		"zbirenbaum/copilot-cmp",
 		config = function()
 			require("copilot_cmp").setup()
+		end,
+	},
+	{
+		"MunifTanjim/prettier.nvim",
+		config = function()
+			require("prettier").setup()
 		end,
 	},
 	-- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
