@@ -226,6 +226,9 @@ end
 
 vim.keymap.set("n", "-", ex_to_current_file)
 
+vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("v", "<", "<gv")
+
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
