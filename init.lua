@@ -1006,6 +1006,7 @@ require("lazy").setup({
 	},
 	{
 		"zbirenbaum/copilot.lua",
+		event = "InsertEnter",
 		config = function()
 			require("copilot").setup({
 				suggestion = { enabled = false },
@@ -1020,10 +1021,26 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"MunifTanjim/prettier.nvim",
-		config = function()
-			require("prettier").setup()
-		end,
+		"nvim-neo-tree/neo-tree.nvim",
+		version = "*",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+		},
+		cmd = "Neotree",
+		keys = {
+			{ "\\", ":Neotree reveal<CR>", desc = "NeoTree reveal", silent = true },
+		},
+		opts = {
+			filesystem = {
+				window = {
+					mappings = {
+						["\\"] = "close_window",
+					},
+				},
+			},
+		},
 	},
 	-- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
 	-- init.lua. If you want these files, they are in the repository, so you can just download them and
